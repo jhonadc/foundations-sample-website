@@ -11,12 +11,8 @@ import json
 def get_color_code(color_name):
     with open('color_check/data/css-color-names.json') as color_list:
         color_dict = json.load(color_list)
-        hex_code = color_dict[color_name]
-        if color_name:
-            return hex_code
-        else: 
-            raise Exception("Sorry, color not in our database.")  
-        #NOT WORKING YET
-
-
-print(get_color_code("blue"))
+        try:
+            color_code = color_dict.get(color_name)
+        except:
+            color_code = f"The color '{color_name}' Doesn’t seem to exist: /"
+        return color_code
