@@ -13,6 +13,8 @@ def get_color_code(color_name):
         color_dict = json.load(color_list)
         try:
             color_code = color_dict.get(color_name)
-        except:
+        except None:
             color_code = f"The color '{color_name}' Doesn’t seem to exist: /"
         return color_code
+
+print(get_color_code("red"))
