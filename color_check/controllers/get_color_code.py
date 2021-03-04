@@ -5,14 +5,12 @@
 # raise and handle an error that helps both you as a developer,
 # for example by logging the request and error, and the user,
 # letting them know that their color doesn't exist.
-import json, logging, os
+import json, os
 
 
 def get_color_code(color_name):
     with open(os.path.dirname(__file__) + '/../data/css-color-names.json') as color_list:
         color_dict = json.load(color_list)
-        logging.basicConfig(filename='/tmp/logs.txt', filemode='w', format='%(name)s, -%(levelname)s - %(message)s', level=logging.DEBUG)
-        logging.debug(f"User string: debbuging")
         try:
             color_code = color_dict.get(color_name)
         except None:

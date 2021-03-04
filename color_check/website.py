@@ -17,6 +17,9 @@ def index():
 def show_color():
     user_submitted_string = request.form.get('color')
     color_hex_code = get_color_code(user_submitted_string)
+    logging.basicConfig(filename='/tmp/logs.txt', filemode='w',
+                        format='%(name)s, -%(levelname)s - %(message)s', level=logging.DEBUG)
+    logging.debug(f"User string: {user_submitted_string}")
     return render_template('color.html', page_title="Show Color",
                            color_hex_code=color_hex_code)
             
