@@ -11,11 +11,8 @@ import json, logging, os
 def get_color_code(color_name):
     with open(os.path.dirname(__file__) + '/../data/css-color-names.json') as color_list:
         color_dict = json.load(color_list)
-        logging.basicConfig(handlers=[logging.FileHandler(os.path.dirname(__file__) +'/../tmp/get_color_code.log', 'w', 'utf-8')])
-        logging.debug('This is a debug message')
-        logging.info('Info: ')
-        logging.warning('Warnings: ')
-        logging.error('Errors: ')
+        logging.basicConfig(filename='/tmp/logs.txt', filemode='w', format='%(name)s, -%(levelname)s - %(message)s', level=logging.DEBUG)
+        logging.debug(f"User string: debbuging")
         try:
             color_code = color_dict.get(color_name)
         except None:
