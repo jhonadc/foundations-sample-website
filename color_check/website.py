@@ -4,11 +4,6 @@ from flask import render_template
 from color_check.controllers.get_color_code import get_color_code
 import logging
 
-logging.basicConfig(level=logging.DEBUG)
-logging.debug('This will get logged')
-logging.basicConfig(filename='app.log', filemode='w',
-                    format='%(process)d - %(name)s - %(levelname)s - %(message)s - %(asctime)s - %(message)s')
-logging.warning('This will get logged to a file')
 
 app = Flask(__name__)
 
