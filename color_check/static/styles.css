@@ -1,6 +1,7 @@
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    margin-left: 2rem;
+    margin: 0 auto;
+    /*background-color: {{ color_hex_code  }};*/
 }
 
 .banner {

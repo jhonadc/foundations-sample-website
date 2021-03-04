@@ -2,6 +2,14 @@ from flask import Flask, render_template, request
 from flask import Flask
 from flask import render_template
 from color_check.controllers.get_color_code import get_color_code
+import logging
+
+logging.basicConfig(level=logging.DEBUG)
+logging.debug('This will get logged')
+logging.basicConfig(filename='app.log', filemode='w',
+                    format='%(process)d - %(name)s - %(levelname)s - %(message)s - %(asctime)s - %(message)s')
+logging.warning('This will get logged to a file')
+
 app = Flask(__name__)
 
 
@@ -16,6 +24,7 @@ def show_color():
     color_hex_code = get_color_code(user_submitted_string)
     return render_template('color.html', page_title="Show Color",
                            color_hex_code=color_hex_code)
+            
                            
     # When the user submits the form at /, the contents of the form
     # will be send to this route, and whatever code you write here will
